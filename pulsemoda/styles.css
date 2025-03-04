@@ -1,96 +1,24 @@
-/* General Reset */
-body, h1, h2, h3, p, ul {
+body {
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
-}
-body {
-    background: #f8f8f8;
-}
-
-/* Header Navigation */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: white;
-    padding: 20px 50px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-.logo img {
-    width: 150px;
-}
-nav ul {
-    display: flex;
-    list-style: none;
-}
-nav ul li {
-    margin: 0 20px;
-}
-nav ul li a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-}
-
-/* Hero Banner */
-.hero {
-    position: relative;
-    text-align: center;
-}
-.hero img {
-    width: 100%;
-    height: auto;
-}
-.hero-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    padding: 20px;
-    border-radius: 5px;
-}
-.shop-now {
-    background: #ff5733;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-/* Product Grid */
-.product-section {
-    text-align: center;
-    padding: 50px 20px;
-}
-.product-grid {
+    background-color: #cbb9a9; /* Use the sampled background color */
     display: flex;
     justify-content: center;
-    gap: 20px;
-}
-.product {
-    background: white;
-    padding: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-.product img {
-    width: 200px;
-    height: auto;
-}
-.product button {
-    background: #ff5733;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #333;
-    color: white;
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Ensures the image scales while maintaining aspect ratio */
 }
