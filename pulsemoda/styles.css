@@ -1,3 +1,20 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set the background color to match the image */
+body {
+    background-color: #d5c6b7; /* Adjusted to match the mockup */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
 /* Status bar styling */
 .status-bar {
     position: fixed;
@@ -15,8 +32,22 @@
     z-index: 999;
 }
 
-/* Hide status bar when it's ready */
 .hidden {
     opacity: 0;
     visibility: hidden;
+}
+
+/* Center image and make it scale properly */
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mockup-image {
+    max-width: 100vw;
+    max-height: 100vh;
+    object-fit: contain;
 }
