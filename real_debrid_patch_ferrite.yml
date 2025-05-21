@@ -1,0 +1,43 @@
+name: Real-Debrid Patch
+author: immutafab
+sources:
+  - name: TorrentsIO with Real-Debrid
+    version: 1
+    type: torrent
+    minVersion: '0.7'
+    about: >
+      TorrentsIO source for Ferrite with Real-Debrid support.
+    website: https://torrentio.strem.fun
+    tags:
+      - name: Movies
+        color: '#FF0000'
+    trackers:
+      - udp://tracker.openbittorrent.com:80/announce
+      - udp://tracker.opentrackr.org:1337/announce
+    api:
+      url: https://torrentio.strem.fun/api
+      headers:
+        Authorization: "Bearer TTL37Z4XSM5YEICRJB3J7HI3QUPXVEWTY57JGIZARA7FNPO5QH6A"
+      query:
+        search: '{query}'
+      jsonParser:
+        items: '$.results[*]'
+        fields:
+          title: '$.title'
+          magnet: '$.magnet'
+          size: '$.size'
+          seeds: '$.seeds'
+          peers: '$.peers'
+
+actions:
+  - name: Open in VLC via Real-Debrid
+    version: 1
+    minVersion: '0.6.4'
+    about: Open with VLC via Real-Debrid unrestrict.
+    website: https://www.videolan.org/vlc/
+    requires:
+      - debrid
+    deeplink:
+      - os: iOS
+        scheme: vlc-x-callback://x-callback-url/stream?url=${link}
+      - scheme: vlc://${link}
