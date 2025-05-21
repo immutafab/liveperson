@@ -1,0 +1,40 @@
+name: Real-Debrid Playback Actions
+author: immutafab
+sources:
+  - name: Real-Debrid VLC Player
+    version: 1
+    minVersion: '0.7'
+    about: >-
+      Direct Real-Debrid playback via VLC. Requires valid Real-Debrid token.
+    website: https://real-debrid.com
+    tags:
+      - name: Playback
+        color: 007aff
+      - name: Real-Debrid
+        color: ff2d55
+    api:
+      url: https://api.real-debrid.com/rest/1.0/unrestrict/magnet
+      headers:
+        Authorization: "Bearer TTL37Z4XSM5YEICRJB3J7HI3QUPXVEWTY57JGIZARA7FNPO5QH6A"
+      bodyType: form
+      method: POST
+      body:
+        magnet: '{{magnet}}'
+    jsonParser:
+      items: links
+      fields:
+        title: 'filename'
+        link: 'download'
+actions:
+  - name: Open in VLC
+    version: 1
+    minVersion: '0.6.4'
+    about: >-
+      Opens the un-restricted RD magnet in VLC for playback.
+    website: https://www.videolan.org/vlc/
+    requires:
+      - debrid
+    deeplink:
+      - os: iOS
+        scheme: vlc-x-callback://x-callback-url/stream?url={{link}}
+      - scheme: vlc://{{link}}
