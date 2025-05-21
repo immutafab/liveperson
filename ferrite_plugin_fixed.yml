@@ -17,7 +17,7 @@ sources:
     api:
       url: https://torrentio.strem.fun/api
       headers:
-        Authorization: Bearer TTL37Z4XSM5YEICRJB3J7HI3QUPXVEWTY57JGIZARA7FNPO5QH6A
+        Authorization: "Bearer TTL37Z4XSM5YEICRJB3J7HI3QUPXVEWTY57JGIZARA7FNPO5QH6A"
       query:
         search: '{query}'
     jsonParser:
