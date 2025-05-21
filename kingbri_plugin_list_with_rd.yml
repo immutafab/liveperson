@@ -12,7 +12,7 @@
       url: https://api.real-debrid.com/rest/1.0/unrestrict/link
       method: POST
       headers:
-        Authorization: "Bearer YOUR_REAL_DEBRID_TOKEN"
+        Authorization: "Bearer TTL37Z4XSM5YEICRJB3J7HI3QUPXVEWTY57JGIZARA7FNPO5QH6A"
       body:
         link: "{link}"
       jsonParser:
