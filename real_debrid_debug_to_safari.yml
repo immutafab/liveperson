@@ -1,0 +1,50 @@
+author: immutafab
+actions:
+  - name: Debug Real-Debrid to Safari
+    version: 1
+    type: magnet
+    minVersion: '0.7'
+    about: >
+      Debug plugin: unrestricts a Real-Debrid magnet and opens the selected file link in Safari.
+    website: https://real-debrid.com
+    requires:
+      - magnet
+    steps:
+      - name: Unrestrict magnet
+        request:
+          url: https://api.real-debrid.com/rest/1.0/unrestrict/magnet
+          method: POST
+          headers:
+            Authorization: "Bearer TTL37Z4XSM5YEICRJB3J7HI3QUPXVEWTY57JGIZARA7FNPO5QH6A"
+          body:
+            magnet: "{link}"
+        result: magnetData
+
+      - name: Get magnet info
+        request:
+          url: https://api.real-debrid.com/rest/1.0/torrents/info/{magnetData.id}
+          method: GET
+          headers:
+            Authorization: "Bearer TTL37Z4XSM5YEICRJB3J7HI3QUPXVEWTY57JGIZARA7FNPO5QH6A"
+        result: magnetInfo
+
+      - name: Select largest video file
+        assign:
+          selectedFile: |
+            ${magnetInfo.files
+              .filter(f => f.path.match(/\.(mp4|mkv|avi|mov)$/i))
+              .sort((a, b) => b.bytes - a.bytes)[0]}
+
+      - name: Unrestrict file
+        request:
+          url: https://api.real-debrid.com/rest/1.0/unrestrict/link
+          method: POST
+          headers:
+            Authorization: "Bearer TTL37Z4XSM5YEICRJB3J7HI3QUPXVEWTY57JGIZARA7FNPO5QH6A"
+          body:
+            link: "{selectedFile.link}"
+        result: final
+
+      - name: Open in Safari
+        open:
+          url: "{final.download}"
