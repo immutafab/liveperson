@@ -1,0 +1,35 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #d5c6b8;
+    text-align: center;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden; /* Prevents scrollbars */
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.responsive-image {
+    width: 100vw; /* Makes the image take up the full viewport width */
+    height: 100vh; /* Makes it take up the full viewport height */
+    object-fit: cover; /* Ensures the image covers the screen without distortion */
+}
+
+#status-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+    font-weight: bold;
+    z-index: 1000;
+}
